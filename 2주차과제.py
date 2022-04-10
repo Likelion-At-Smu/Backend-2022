@@ -1,6 +1,5 @@
-import sys
-
 def print_menue():
+    print(chr(0x1F981))
     print("-"*14+chr(0x1F981)+" 멋쟁이 사자처럼 전화번호부 "+chr(0x1F981)+"-"*14)
     print("-"*10+"1) 추가 2) 조회 3) 수정 4) 삭제 q) 종료"+"-"*10)
     print("-"*53)
@@ -29,14 +28,19 @@ def adjustment():
     print("수정을 원하는 이름을 입력해주세요 : ",end="")
     name = input()
     print("수정을 원하는 항목과 이름을 입력해주세요 : ",end="")
-    inf = list(sys.stdin.readline().split())
-    phone_book[name][inf[0]]=inf[1]
+    key, value = input().split()
+    if name in phone_book:
+        phone_book[name][key]=value
+    if key=="이름":
+        phone_book[key]=phone_book[name]
+        del phone_book[name]
     print()
 
 def delete():
     print("삭제를 원하는 이름을 입력해주세요 : ",end="")
     name = input()
-    del phone_book[name]
+    if name in phone_book:
+        del phone_book[name]
     print()
 
 
@@ -52,8 +56,13 @@ if __name__=="__main__":
             search()
             continue
         elif cmd == '3':
-            adjustment()
-            continue
+            try:
+                adjustment()
+                continue
+            # 에러가 발생할 가능성이 있는 코드
+            except Exception as ex: # 에러 종류
+                print('에러가 발생 했습니다', ex) # ex는 발생한 에러의 이름을 받아오는 변수
+            
         elif cmd == '4':
             delete()
             continue
