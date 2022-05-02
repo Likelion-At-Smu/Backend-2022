@@ -4,7 +4,7 @@ intro = "--------------🦁 멋쟁이 사자처럼 전화번호부 🦁---------
 phone_book = []
 
 while True:
-    print(intro)
+    print("\n" + intro + "\n")
     question = input("원하는 메뉴를 입력해주세요 : ")
     if question == "q":
         break
@@ -20,8 +20,11 @@ while True:
 
     elif question == "2":
         name = input("조회를 원하는 이름을 입력해주세요 : ")
-        ret = next((item for item in phone_book if item["이름"] == name), None)
-        print(ret)
+        for i in phone_book:
+            if i["이름"] == name:
+                print(i)
+            else:
+                continue
 
     elif question == "3":
         name = input("수정을 원하는 이름을 입력해주세요 : ")
