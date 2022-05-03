@@ -40,7 +40,7 @@ def save_fav(url, tag, class_name, chrome_driver_path):
 
 # 날씨
 city = "Seoul"
-apikey = "1cf8ec3373ffb1bd6bc4b12767ebcbb6"
+apikey = "key"
 lang = "kr"
 api = f"""http://api.openweathermap.org/data/2.5/\
 weather?q={city}&appid={apikey}&lang={lang}&units=metric"""
@@ -123,7 +123,7 @@ def mail():
         message["To"] = mail
 
         smtp = smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT)
-        smtp.login("unhipark000@gmail.com", "vazbvxltwvpfxcpc")
+        smtp.login("id", "ps")
 
         is_valid(mail)
         if smtp.send_message(message) == {}:
