@@ -89,10 +89,9 @@ while True:
                 mail = i["메일"]
         message["To"] = mail
 
-        # 실시간 검색어가 폐지돼서 네이버 상단바 목록을 크롤링했습니다.
         with open("rankresult.txt", "rb") as f:
             text_file = f.read()
-        message.add_attachment(text_file, maintype='text', subtype='txt', filename= f.name)
+        message.add_attachment(text_file, maintype='text', subtype='txt', filename=f.name)
 
         smtp = smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT)
         smtp.login("tnwlssla20@gmail.com", "aeaggowisdevimcx")
