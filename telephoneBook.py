@@ -37,6 +37,4 @@ while True:
         name = input("삭제를 원하는 이름을 입력해주세요 : ")
         for i in phone_book:
             if i["이름"] == name:
-                i.pop("이름")
-                i.pop("전화번호")
-                i.pop("메일")
+                phone_book.remove(i)
