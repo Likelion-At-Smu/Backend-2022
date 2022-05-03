@@ -8,8 +8,8 @@ def ph_book():
 
 def insert():
     name = input("이름을 입력해주세요: ")
-    phnum = input("이현우님의 번호를 입력해주세요: ")
-    mail = input("이현우님의 메일을 입력해주세요: ")
+    phnum = input("번호를 입력해주세요: ")
+    mail = input("메일을 입력해주세요: ")
     print("\n")
 
     book.append({"이름" : name, "전화번호": phnum, "메일": mail })
@@ -23,7 +23,7 @@ def search():   #조회 함수
 
 def fix():
     name = input("수정을 원하는 이름을 입력해주세요 : ")
-    what, likethis = input("수정을 원하는 항목과 이릉을 입력해주세요: ").split()
+    what, likethis = input("수정을 원하는 항목과 이름을 입력해주세요: ").split()
 
     for x in book:  # book 리스트 내부에서 찾아오는 loop
         x[what] = likethis
