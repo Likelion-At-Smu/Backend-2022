@@ -1,5 +1,7 @@
 html,body{
     height: 100%;
+    width:100%;
+    overflow: hidden;
 }
 h1,h2{
     text-align: center;
@@ -16,6 +18,8 @@ h2{
     height:10%;
 }
 #choice_text{
+    margin-top:1%;
+    margin-bottom: 0;
     font-size:200%;
     color:red;
 }
@@ -44,6 +48,10 @@ h2{
     height:80%;
     width:100%;
     text-align:center;
+}
+.result_img>img{
+    height:100%;
+    width:100%;
 }
 button{
     height:100% ;
