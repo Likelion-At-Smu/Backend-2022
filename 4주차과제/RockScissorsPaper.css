@@ -1,0 +1,44 @@
+* {
+    text-align: center;
+}
+
+#result-text {
+    text-shadow: 2px 2px 0px #bdbdbd;
+}
+
+.box {
+    display: inline-block;
+    width: 350px;
+    height: 300px;
+    left: 50%;
+    margin-left: -350px/2;
+    background-color: grey;
+    border-radius: 30%;
+    vertical-align: top;
+}
+
+.box > img {
+    width: 250px;
+    height: auto;
+    padding-top: 10px;
+}
+
+#box1 {
+    margin-right: 50px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
+
+#choose-text {
+    color: red;
+}
+
+#choose > img {
+    width: 50px;
+    height: auto;
+}
