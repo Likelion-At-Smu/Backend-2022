@@ -6,7 +6,12 @@ html,body{
 h1,h2{
     text-align: center;
 }
-
+h1{
+    margin-bottom:0;
+}
+#result_text{
+    margin-top: 0;
+}
 h1{
     font-size:300%;
 }
