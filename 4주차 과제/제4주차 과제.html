@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4주차 과제 김지훈</title>
+    <link rel="stylesheet" href="4주차 과제.css">
+</head>
+<body>
+    <h1>가위 바위 보!</h1>
+    <h2 id = "result_text">Good Luck!</h2>
+    <div class = result_area>
+        <div class="result_box" id = "play_result">
+            <div class ="score_num" id = "my_score_num">You: 0</div>
+            <div class = "result_img" ><img id='play_choice' src="가위.png"></div>
+        </div>
+        <div class="result_box" id ="com_result">
+            <div class ="score_num" id = "com_score_num">Computer: 0</div>
+            <div class = "result_img" ><img id='com_choice' src="가위.png"></div>
+        </div>
+    </div>
+    
+    <h2 id = "choice_text">Choose One !</h2>
+    <div class='choice'>
+        <button><img id='scissor' src="가위.png"></button>
+        <button><img id='rock' src="바위.png"></button>
+        <button><img id='paper' src="보.png"></button>
+    </div>
+    
+    <script 
+    src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+    crossorigin="anonymous"></script>
+    <script>//import jquery
+        var play_score = 0;//score of player
+        var com_score = 0;//score of computer
+        function result(play,com){//승패를 판단하는 함수
+            if (play==com){//비겼을경우의 출력
+                $("#result_text").text("tie!");
+                $("#result_text").css("color","gray");            }
+            else if((play==1&&com==3)||(play==2&&com==1)||(play==3&&com==2)){
+                $("#result_text").text("win!!");
+                $("#result_text").css("color","red");//player가 이겼을때의 출력
+                
+                play_score+=1;
+                $("#my_score_num").text("You: "+play_score);
+                
+            }
+            else{
+                $("#result_text").text("lose...");
+                $("#result_text").css("color","blue");
+                com_score+=1;
+                $("#com_score_num").text("Computer: "+com_score);
+
+            }
+        }
+        function com_img(com){
+            if (com==1){
+                $("#com_choice").attr("src", "가위.png");
+                }
+                else if (com==2){
+                    $("#com_choice").attr("src", "바위.png");
+                }
+                else if (com==3){
+                    $("#com_choice").attr("src", "보.png");
+                }
+        }
+        
+            
+            $('#scissor').click(function(){
+                var com=parseInt(Math.random()*3+1)
+                $("#play_choice").attr("src", "가위.png");
+                com_img(com)
+                result(1,com)
+            })
+            $('#rock').click(function(){
+                var com=parseInt(Math.random()*3+1)
+                console.log(com)
+                $("#play_choice").attr("src", "바위.png");
+                com_img(com)
+                result(2,com)
+            })
+            $('#paper').click(function(){
+                var com=parseInt(Math.random()*3+1)
+                $("#play_choice").attr("src", "보.png");
+                com_img(com)
+                result(3,com)
+            })
+
+        
+        
+    </script>
+</body>
+</html>
