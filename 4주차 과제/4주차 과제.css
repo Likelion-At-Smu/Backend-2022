@@ -1,0 +1,53 @@
+html,body{
+    height: 100%;
+}
+h1,h2{
+    text-align: center;
+}
+
+h1{
+    font-size:300%;
+}
+h2{
+    font-size:150%;
+}
+.choice{
+    text-align: center;
+    height:10%;
+}
+#choice_text{
+    font-size:200%;
+    color:red;
+}
+.result_area{
+    height:60%;
+    width:100%;
+    display: flex;
+}
+.result_box{
+    margin-left: 5%;
+    margin-right:5%;
+    height : 100%;
+    width : 40%;
+}
+.score_num{
+    background-color: black;
+    height:10%;
+    width:100%;
+    color:white;
+    text-align: center;
+    font-size:200%;
+    padding-top:3%;
+}
+.result_img{
+    background-color: rgb(56, 53, 53);
+    height:80%;
+    width:100%;
+    text-align:center;
+}
+button{
+    height:100% ;
+}
+img{
+    height:100%;
+}
