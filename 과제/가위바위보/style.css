@@ -1,0 +1,41 @@
+body {
+    text-align: center; 
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.gameBoard{
+    margin-bottom: 20%;
+}
+
+#myPoint{
+    color: white;
+    background-color: black;
+    margin-bottom: 7%;
+}
+
+#comPoint{
+    color: white;
+    background-color: black;
+    margin-bottom: 7%;
+}
+
+.myChoice{
+    float: left;
+    margin-left: 30%;
+    padding: 2%;    
+}
+
+.computerChocice {
+    float: right;
+    margin-right: 30%;
+    padding: 2%;
+}
+
+#game{
+    padding-bottom: 5%;
+}
+
+h3{
+    margin-top: 20%;
+}
