@@ -85,6 +85,7 @@
         <img id='rockbutton' src="rock.png" alt="rockbutton">
         <img id='scissorbutton' src="scissor.png" alt="scissorbutton">
         <img id='paperbutton' src="paper.png" alt="paperbutton">
+        <h1 id="result"></h1>
     </div>
     <script
     src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -106,6 +107,7 @@
                 $('#comrock').fadeIn();
                 $('#comscissor').fadeOut();
                 $('#compaper').fadeOut();
+                $('#result').text("비겼습니다.")
             }
             else if(comchoice == 2)//승리
             {
@@ -113,6 +115,7 @@
                 $('#comscissor').fadeIn();
                 $('#compaper').fadeOut();
                 win++;
+                $('#result').text("이겼습니다.")
             }
             else if(comchoice ==3 )//패배
             {
@@ -120,6 +123,7 @@
                 $('#comscissor').fadeOut();
                 $('#compaper').fadeIn();
                 lose++;
+                $('#result').text("졌습니다.")
             }
             $('#usercount').text('유저 점수 : '+ win);
             $('#comcount').text('컴퓨터 점수 : '+ lose);
@@ -136,12 +140,14 @@
                 $('#comscissor').fadeOut();
                 $('#compaper').fadeOut();
                 lose++;
+                $('#result').text("졌습니다.")
             }
             else if(comchoice == 2)//무승부
             {
                 $('#comrock').fadeOut();
                 $('#comscissor').fadeIn();
                 $('#compaper').fadeOut();
+                $('#result').text("비겼습니다.")
             }
             else if(comchoice ==3 )//승리
             {
@@ -149,6 +155,7 @@
                 $('#comscissor').fadeOut();
                 $('#compaper').fadeIn();
                 win++;
+                $('#result').text("이겼습니다.")
             }
             $('#usercount').text('유저 점수 : '+ win);
             $('#comcount').text('컴퓨터 점수 : '+ lose);
@@ -165,19 +172,22 @@
                 $('#comscissor').fadeOut();
                 $('#compaper').fadeOut();
                 win++;
+                $('#result').text("이겼습니다.")
             }
             else if(comchoice == 2)//패배
             {
                 $('#comrock').fadeOut();
                 $('#comscissor').fadeIn();
                 $('#compaper').fadeOut();
-                lose
+                lose++;
+                $('#result').text("졌습니다.")
             }
             else if(comchoice ==3 )//무승부
             {
                 $('#comrock').fadeOut();
                 $('#comscissor').fadeOut();
-                $('#compaper').fadeIn();      
+                $('#compaper').fadeIn(); 
+                $('#result').text("비겼습니다.")     
             }
             $('#usercount').text('유저 점수 : '+ win);
             $('#comcount').text('컴퓨터 점수 : '+ lose);
