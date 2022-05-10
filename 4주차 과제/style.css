@@ -5,6 +5,11 @@ body {
     align-items: center;
 }
 
+#result{
+    font-size : 40px;
+    font-weight: bold;
+}
+
 #game_space{
     display: flex;
     flex-direction: row;
