@@ -1,0 +1,37 @@
+h1{
+    text-align: center;
+}
+h2{
+    color: green;
+    text-align: center;
+    margin-bottom: 3%;
+}
+.box{
+    overflow: hidden;
+}
+.youbox{ 
+    background-color: black;
+    color: aliceblue;
+    width: 30%;
+    height: 250px;
+    float: left;
+    text-align: center;
+    margin-left: 15%;
+}
+.combox{
+    background-color: black;
+    color: aliceblue;
+    width: 30%;
+    height: 250px;
+    border: 1px solid;
+    float: right;
+    text-align: center;
+    margin-right: 15%;
+}
+.choice{
+    text-align: center;
+}
+h3{
+    color: Blue;
+    margin-top: 3%;
+}
