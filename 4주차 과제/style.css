@@ -1,0 +1,46 @@
+body {
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#game_space{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+h1{
+    font-size: 50px;
+    margin : 10px;
+}
+h4{
+    background-color: blue;
+    color: white;
+    margin: 0;
+    padding : 10px;
+}
+h5{
+    color:red;
+    font-size:20px;
+    margin-top:50px;
+}
+
+.result_present{
+    background-color: black;
+}
+
+#select_{
+    display: flex;
+    flex-direction: row;
+}
+
+.user_selector{
+    height: 50px;
+    width: fit-content;
+    margin:10px;
+    border: 2px solid red;
+    border-radius: 5px;
+}

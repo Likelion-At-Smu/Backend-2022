@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="RPS.js"></script>
+    <title>RPS</title>
+</head>
+<body>
+    <h1>가위 바위 보!</h1>
+    <p id = 'result'>GOOD LUCK!!</p>
+    <article id = 'game_space'>
+        <span class="result_present">
+        <h4 id="user_win_cnt">YOU : 0</h4>
+        <img id="user_give" class="" src="0.png">
+        </span>
+        <span>
+            <h3>VS</h3>
+        </span>
+        <span class="result_present">
+        <h4 id = 'com_win_cnt'>COMPUTER : 0</h4>
+        <img id="computer_give" src="0.png">
+        </span>
+    </article>
+    <h5>Choose One!!</h5>
+    <article id = 'select_'>
+        <img id="rock" class="user_selector" src="0.png" onclick="game(0)">
+        <img id="paper" class="user_selector" src="1.png" onclick="game(1)">
+        <img id="scissors" class="user_selector" src="2.png" onclick="game(2)">
+    </article>
+</body>
+</html>
