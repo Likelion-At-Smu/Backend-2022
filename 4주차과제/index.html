@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>가위바위보 게임</title>
+    <style>
+        .user{
+            position: absolute;
+            width: 500px;
+            height: 330px;
+            top: 300px;
+            left: 600px;
+        }
+
+        .com{
+            position: absolute;
+            width: 500px;
+            height: 330px;
+            top : 300px;
+            left : 1100px
+        }
+        .button{
+            text-align: center;
+        }
+        #rockbutton{
+            width: 50px;
+            height: 50px;
+            top: 500px;
+            left: 150px;
+        }
+        #scissorbutton{
+            width: 50px;
+            height: 50px;
+            top: 500px;
+            left: 200px;
+        }
+        #paperbutton{
+            width: 50px;
+            height: 50px;
+            top: 500px;
+            left: 250px;
+        }
+        /*#rock {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            top: 100px;
+            left: 60px;
+        }
+        #scissor {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            top: 80px;
+            right: 20px;
+        }
+        #paper {
+            display: none;
+            position: absolute;
+            top: 140px;
+            left: 150px;
+            width: 150px;
+            height: 150px;
+            z-index: 2;
+        }*/
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">가위바위보 게임</h1>
+    <div class='user'>
+        <img id='userrock' style="display: none;" src="rock.png" alt="userrock">
+        <img id='userscissor'style="display: none;" src="scissor.png" alt="userscissor">
+        <img id='userpaper' src="paper.png" alt="userpaper">
+        <h1 id="usercount">유저 점수 : 0</h1>
+    </div>
+    <div class='com'>
+        <img id='comrock' style="display: none;" src="rock.png" alt="comrock">
+        <img id='comscissor' style="display: none;" src="scissor.png" alt="comscissor">
+        <img id='compaper' src="paper.png" alt="compaper">
+        <h1 id="comcount">컴퓨터 점수 : 0</h1>
+    </div>
+
+    <div class="button">
+        <h1>버튼을 누르세요</h1>
+        <img id='rockbutton' src="rock.png" alt="rockbutton">
+        <img id='scissorbutton' src="scissor.png" alt="scissorbutton">
+        <img id='paperbutton' src="paper.png" alt="paperbutton">
+    </div>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+    <script>
+        var win = 0;
+        var lose = 0;
+        var userchoice;
+        var comchoice; 
+        $('#rockbutton').click(function(){
+            userchoice = 1;//바위
+            comchoice = Math.floor(Math.random()*3+1)//선택
+            $('#userrock').fadeIn();
+            $('#userscissor').fadeOut();
+            $('#userpaper').fadeOut();
+            if(comchoice == 1)//무승부
+            {
+                $('#comrock').fadeIn();
+                $('#comscissor').fadeOut();
+                $('#compaper').fadeOut();
+            }
+            else if(comchoice == 2)//승리
+            {
+                $('#comrock').fadeOut();
+                $('#comscissor').fadeIn();
+                $('#compaper').fadeOut();
+                win++;
+            }
+            else if(comchoice ==3 )//패배
+            {
+                $('#comrock').fadeOut();
+                $('#comscissor').fadeOut();
+                $('#compaper').fadeIn();
+                lose++;
+            }
+            $('#usercount').text('유저 점수 : '+ win);
+            $('#comcount').text('컴퓨터 점수 : '+ lose);
+        });
+        $('#scissorbutton').click(function(){
+            userchoice = 2;//가위
+            comchoice = Math.floor(Math.random()*3+1)//선택
+            $('#userrock').fadeOut();
+            $('#userscissor').fadeIn();
+            $('#userpaper').fadeOut();
+            if(comchoice == 1)//패배
+            {
+                $('#comrock').fadeIn();
+                $('#comscissor').fadeOut();
+                $('#compaper').fadeOut();
+                lose++;
+            }
+            else if(comchoice == 2)//무승부
+            {
+                $('#comrock').fadeOut();
+                $('#comscissor').fadeIn();
+                $('#compaper').fadeOut();
+            }
+            else if(comchoice ==3 )//승리
+            {
+                $('#comrock').fadeOut();
+                $('#comscissor').fadeOut();
+                $('#compaper').fadeIn();
+                win++;
+            }
+            $('#usercount').text('유저 점수 : '+ win);
+            $('#comcount').text('컴퓨터 점수 : '+ lose);
+        });
+        $('#paperbutton').click(function(){
+            userchoice = 3;//보
+            comchoice = Math.floor(Math.random()*3+1)//선택
+            $('#userrock').fadeOut();
+            $('#userscissor').fadeOut();
+            $('#userpaper').fadeIn();
+            if(comchoice == 1)//승리
+            {
+                $('#comrock').fadeIn();
+                $('#comscissor').fadeOut();
+                $('#compaper').fadeOut();
+                win++;
+            }
+            else if(comchoice == 2)//패배
+            {
+                $('#comrock').fadeOut();
+                $('#comscissor').fadeIn();
+                $('#compaper').fadeOut();
+                lose
+            }
+            else if(comchoice ==3 )//무승부
+            {
+                $('#comrock').fadeOut();
+                $('#comscissor').fadeOut();
+                $('#compaper').fadeIn();      
+            }
+            $('#usercount').text('유저 점수 : '+ win);
+            $('#comcount').text('컴퓨터 점수 : '+ lose);
+        });
+    </script>
+</body>
+</html>
