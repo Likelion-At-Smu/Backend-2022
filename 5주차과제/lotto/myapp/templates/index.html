@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>로또 번호 추출</title>
+</head>
+<body>
+    <h1>로또 번호 추출기</h1>
+    <p>로또 번호를 받아보세요!<br>몇 개의 게임을 뽑으시겠습니까?</p>
+
+    <!-- form action은 form 내부에 데이터를 보내는 목적지url을 지정 -->
+    <!--  method는 form을 서버로 전송하는 http 방식을 지정, GET과 POST가 있고,
+    GET의 경우 url뒤에 input 박스의 내용이 "key=value"형태로 변환되어 전송된다.-->
+    <form action="{% url 'result' %}" method="GET">
+        <input type="text" name="count">
+        <button type="submit">로또 번호 추출하기</button>
+    </form>
+</body>
+</html>
