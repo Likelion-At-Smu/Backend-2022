@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        h1 {
+            font-size: 30pt;
+        }
+
+        pre {
+            font-size: 15pt;
+            font-weight: bolder;
+        }
+        
+        #input1 {
+            float:left;
+            width: 90pt;
+            margin-right:10px;
+        }
+
+        #input2 {
+            float:left;
+            width: 100pt;
+        }
+
+        </style>
+    <link rel="stylesheet" href="index.css">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>로또 번호 추출기</h1>
+    <pre>
+
+로또 번호를 받아보세요!
+몇 개의 게임을 뽑으시겠습니까?
+    </pre>
+    <form action="http://127.0.0.1:8000/lotto/result/" mathod="get">
+        <input type="number" name="number">
+        <button type='submit'> 로또 번호 추출하기</button>
+    </form>
+
+</body>
+</html>
