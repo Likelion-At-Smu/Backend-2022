@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결과</title>
+    <style>
+        html, body{
+            height : 100%;
+            width : 100%;
+        }
+        #title{
+            font-size : 400%
+        }
+        .subtitle{
+            font-size : 200%
+        }
+        #box{
+            display: flex;
+            width:300px;
+        }
+        #input{
+            width:300px;
+        }
+        #button{
+            margin-left:20px;
+            height:50px;
+            
+        }
+    </style>
+</head>
+<body>
+    <p id = "title">로또 번호 추출기</p>
+    <p class = "subtitle">생성된 로또 번호입니다.</p>
+    <p class = "subtitle">게임수 : {{number}}<br>로또 번호 : {{result}}</p>
+</body>
+</html>
