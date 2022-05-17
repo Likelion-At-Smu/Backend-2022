@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function send(){
+            document.getElementById("input").submit();
+        }
+    </script>
+</head>
+<body>
+  <h1>로또 번호 추출기</h1>
+  <p>로또 번호를 받아보세요!</p>
+  <p>몇 개의 게임을 뽑으시겠습니까?</p>
+    <!--  post 방식으로 추출 횟수를 전송-->
+  <form id = "input" method = "post" action="{% url 'result' %}">
+      {% csrf_token %}
+      <input name = "gameNum" type="number">
+      <button type="button" onclick="send();">로또 번호 생성받기</button>
+  </form>
+</body>
+</html>
