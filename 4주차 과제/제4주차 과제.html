@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4주차 과제 김지훈</title>
+    <link rel="stylesheet" href="4주차 과제.css">
+</head>
+<body>
+    <h1>가위 바위 보!</h1>
+    <h2 id = "result_text">Good Luck!</h2>
+    <div class = result_area>
+        <div class="result_box" id = "play_result">
+            <div class ="score_num" id = "my_score_num">You: 0</div>
+            <div class = "result_img" ><img id='play_choice' src="가위.png"></div>
+        </div>
+        <div class="result_box" id ="com_result">
+            <div class ="score_num" id = "com_score_num">Computer: 0</div>
+            <div class = "result_img" ><img id='com_choice' src="가위.png"></div>
+        </div>
+    </div>
+    
+    <h2 id = "choice_text">Choose One !</h2>
+    <div class='choice'>
+        <button><img id='scissor' src="가위.png"></button>
+        <button><img id='rock' src="바위.png"></button>
+        <button><img id='paper' src="보.png"></button>
+    </div>
+    
+    <script 
+    src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+    crossorigin="anonymous"></script>
+    <script>//import jquery
+        var play_score = 0;//score of player
+        var com_score = 0;//score of computer
+        function result(play,com){//승패를 판단하는 함수
+            if (play==com){//비겼을경우의 출력
+                $("#result_text").text("tie!");
+                $("#result_text").css("color","gray");            }
+            else if((play==1&&com==3)||(play==2&&com==1)||(play==3&&com==2)){
+                $("#result_text").text("win!!");
+                $("#result_text").css("color","red");//player가 이겼을때의 출력
+                
+                play_score+=1;//player의 점수 1 증가
+                $("#my_score_num").text("You: "+play_score);//변경된 player 의 점수 출력
+                
+            }
+            else{
+                $("#result_text").text("lose...");
+                $("#result_text").css("color","blue");//player가 졌을때의 출력
+                com_score+=1;//컴퓨터의 점수 1 증가
+                $("#com_score_num").text("Computer: "+com_score);//컴퓨터의 변경된 점수 출력
+
+            }
+        }
+        function com_img(com){//컴퓨터가 선택한 이미지
+            if (com==1){//가위를 내는 경우
+                $("#com_choice").attr("src", "가위.png");
+                }
+                else if (com==2){//바위를 내는 경우
+                    $("#com_choice").attr("src", "바위.png");
+                }
+                else if (com==3){//보를 내는 경우
+                    $("#com_choice").attr("src", "보.png");
+                }
+        }
+        
+            
+            $('#scissor').click(function(){//가위를 클릭했을 때
+                var com=parseInt(Math.random()*3+1)//컴퓨터는 1,2,3중 하나를 선택한다.
+                $("#play_choice").attr("src", "가위.png");//player의 화면에 가위를 출력한다.
+                com_img(com)//컴퓨터의 이미지를 변경한다.
+                result(1,com)//승패를 계산한다.
+            })
+            $('#rock').click(function(){//바위를 클릭했을 때
+                var com=parseInt(Math.random()*3+1)//컴퓨터는 1,2,3중 하나를 선택한다.
+                $("#play_choice").attr("src", "바위.png");//player의 화면에 바위를 출력한다.
+                com_img(com)//컴퓨터의 이미지를 변경한다.
+                result(2,com)//승패를 계산한다.
+            })
+            $('#paper').click(function(){//보를 클릭했을 때
+                var com=parseInt(Math.random()*3+1)//컴퓨터는 1,2,3중 하나를 선택한다.
+                $("#play_choice").attr("src", "보.png");//player의 화면에 보를 출력한다.
+                com_img(com)//컴퓨터의 이미지를 변경한다.
+                result(3,com)//승패를 계산한다.
+            })
+
+        
+        
+    </script>
+</body>
+</html>
