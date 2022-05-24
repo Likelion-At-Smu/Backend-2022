@@ -1,3 +1,4 @@
+<!-- 데이터가 url이 login인 곳으로 넘어감 -->
 <form action="{% url 'login' %}" method="POST">
     {% csrf_token%}
     username : <input type="text" name="username"><br/>
