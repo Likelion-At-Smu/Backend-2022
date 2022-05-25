@@ -1,0 +1,10 @@
+<h1>django form을 이용한 새 글 작성 페이지</h1>
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        <!-- #아래의 경우 테이블이 감싼 것 처럼 form이 보이게 된다 -->
+    {{ form.as_table }}   
+    <!-- views.py 내에 있는 이 데이터는 중괄호 2개로 감싼 형태로 html에서 찍을 수 있다 -->
+    </table>
+    <input type="submit" value= "새 글 생성하기">
+</form>

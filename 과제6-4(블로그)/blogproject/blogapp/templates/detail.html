@@ -1,0 +1,38 @@
+<h1>제목</h1>
+{{ blog_detail.title }}
+
+<!-- 블로그 객체 중에서 pk 값이 블로그 id에 해당하는 객체 하나 -->
+<h2>날짜</h2>
+{{ blog_detail.date }}
+
+<h3>본문</h3>
+{{ blog_detail.body }}
+
+
+<!-- blog_detail에 포토가 있다면 -->
+<h3>본문에 추가된 첨부 파일</h3>
+{% if blog_detail.photo %}  
+<!-- 사진찍어주기 -->
+    {{ blog_detail.photo.url }}
+    <!-- photo 뒤에 .url을 꼭 붙여주어야 사진이 보인다 -->
+    <img src ="{{ blog_detail.photo.url }}" alt="" height="600">
+{% endif %}
+
+<hr>
+<h3>댓글</h3>
+<form method="POST" action="{% url 'create_comment' blog_detail.id %}"">
+    {% csrf_token %}
+    {{ comment_form }}
+    <input type="submit">
+</form>
+
+<!-- id 값은 django가 임의로 정한 primary key 값 -->
+
+
+<!-- 댓글 목록들 -->
+{% for comment in blog_detail.comment_set.all %}
+<!-- 특정 객체를 참고하고 있는 어떤 model의 집합을 표시할 때 위와 같이 .all은 모두 가져오기 -->
+<p>{{ comment }}</p>
+<hr>
+{% endfor %}
+

@@ -1,0 +1,18 @@
+{% load static %} 
+<!-- 템플릿 언어로 static파일을 가져와주세요 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static  'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style2.css' %}">
+
+    <!-- static 파일 디렉토리 하위에 있는 style.css를 가져와준다 -->
+    <title>static practice</title>
+</head>
+<body>
+    <div>Hello Static!</div>
+</body>
+</html>
