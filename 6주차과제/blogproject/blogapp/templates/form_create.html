@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> django form을 이용한 새 글 작성 페이지</h1>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {%csrf_token%}
+        <table>
+            <!-- views.py에 render()의 세번째 인자로 넘겨준 데이터는 표현방법은 아래와 같음-->
+            {{ form.as_table }}
+            
+        </table>
+        <input type="submit" value="새 글 생성하기">
+</body>
+</html>
