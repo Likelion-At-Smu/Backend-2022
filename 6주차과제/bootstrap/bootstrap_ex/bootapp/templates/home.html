@@ -1,0 +1,13 @@
+<!-- base.html이라는 html을 상속 -->
+<!-- 단, block 사이는 이 html 고유의 코드입니다를 알려줌 -->
+<!-- 꼭 block을 content라고 할 필요는 없음 ! block mycontent이런식으로도 가능, 그리고 하나의 html안에 여러개의 block이 있을 수 있음-->
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="alert alert-success" role="alert">
+      <h4 class="alert-heading">홈페이지 입니다</h4>
+      <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+      <hr>
+      <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+  </div>
+{% endblock %}
