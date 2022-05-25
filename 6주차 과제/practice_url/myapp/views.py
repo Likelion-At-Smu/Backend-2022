@@ -1,0 +1,8 @@
+from django.shortcuts import render
+
+# Create your views here.
+def first(request):
+    return render(request,'first.html')
+
+def second(requset):
+    return(requset,'second.html')
