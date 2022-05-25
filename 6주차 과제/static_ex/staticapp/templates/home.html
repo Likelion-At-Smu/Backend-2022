@@ -1,0 +1,19 @@
+<!-- static directory를 load하기위한 명령어 -->
+{% load static %} 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Practice</title>
+    <!-- static directory 하에 있는 css/style.css를 불러오는 문장 -->
+    <link rel = "stylesheet" type="text/css" href = "{% static 'css/style.css' %}">
+    <!-- staticapp에서 사용하는 static directory의 css 불러오기 -->
+    <link rel = "stylesheet" type="text/css" href = "{% static 'mycss/style2.css' %}">
+</head>
+<body>
+    <div>Hello Static</div>
+</body>
+</html>
