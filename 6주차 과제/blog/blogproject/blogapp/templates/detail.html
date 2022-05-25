@@ -1,0 +1,19 @@
+<h1>제목 {{post_info.title}}</h1>
+<h4>날짜 {{post_info.date}}</h4>
+<h3>내용 {{post_info.body}}</h3>
+<!-- for문처럼 템플릿으로 if문 사용 -->
+{% if post_info.photo %}
+    <img src="{{ post_info.photo.url }}" alt="" height="600"/>
+{% endif %}
+<hr>
+<h3>댓글</h3>
+<form method="POST" action="{% url 'createcomment' post_info.id %}">
+    {% csrf_token %}
+    {{ comment_form }}
+    <input type="submit" value="작성">
+</form>
+
+{% for comment in post_info.comment_set.all %}
+    <p>{{ comment }}</p>
+    <hr>
+{% endfor %}

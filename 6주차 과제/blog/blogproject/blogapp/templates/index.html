@@ -1,0 +1,26 @@
+{% if user.is_authenticated %}
+안녕하세요. {{ user.username }} 님!<br>
+<!--모델 폼을 이용한 새 글 작성하기-->
+<a href="{% url 'modelnew'%}">새 글 작성하기</a><br>
+<a href="{% url 'logout' %}">로그아웃</a><br>
+{% else %}
+아직 로그인이 되지 않았어요.
+<a href="{% url 'login'%}">로그인</a>
+{% endif %}
+
+<h1>MY SIMPLE BLOG</h1>
+
+<!-- 템플릿 언어를 이용하여 for문 작성 -->
+{% for post in posts %}
+    <a href="{% url 'detail' post.id %}"><h3>{{ post.title }}</h3></a>
+    {{ post.date }}<br/>
+    {{ post.body }}<br/>
+    id : {{ post.id }}
+{% endfor %}
+
+<!--<a href="{% url 'new'%}">HTML FORM을 이용한 새 글 작성</a> <br/>-->
+<!--<a href="{% url 'djangonew'%}">DJANGO FORM을 이용한 새 글 작성</a><br/>-->
+
+
+
+

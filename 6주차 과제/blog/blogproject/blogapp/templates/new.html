@@ -1,0 +1,15 @@
+<form action="{% url 'create'%}" method="POST">
+    <!-- 보안을 위한 작성문 -->
+    {% csrf_token %}
+    <div>
+        <!-- Blog의 title에 대응되는 항목 -->
+        <label for="title">제목</label><br/>
+        <input type="text" name="title" id="title">
+    </div>
+    <div>
+        <!-- Blog의 body에 대응되는 항목 -->
+        <label for="body">내용</label><br/>
+        <textarea type="text" name="body" id="body" clos="30" rows="10"></textarea>
+    </div>
+    <input type="submit" value="글 생성하기">
+</form>
