@@ -1,4 +1,4 @@
-#!/Users/onieyh/Desktop/Backend-2022/6주차과제/blogproject/myvenv/bin/python3
+#!/Users/onieyh/Desktop/blogproject/myvenv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

@@ -1,31 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>blog</title>
-</head>
-<body>
-    {% if user.is_authenticated %}
-    안녕하세요, {{user.username}}님<br/>
-    <a href="{% url 'logout' %}">로그아웃</a>
-    {%else%}
-    아직 로그인이 되지 않았어요<br/>
-    <a href="{% url 'login' %}">로그인</a>
-    {%e ndif %}
+{% if user.is_authenticated %}
+안녕하세요, {{ user.username }}님! </br>
+<a href="{% url 'logout' %}">로그아웃</a>
+{% else %}
+아직 로그인이 되지 않았어요 .. </br>
+<a href="{% url 'login' %}">로그인</a>
+{% endif %} </br></br>
 
-    <h1>My Blog</h1>
-    <!-- 이 공간에는 블로그 글들의 목록을 보여줄 예정 -->
+<h1>My Simple Blog</h1>
 
-    {% for post in posts %}
-        <a href="{% url 'detail' post.id %}"><h3>제목: {{post.title}}</h3></a>
-        <h4>작성날짜: {{post.date}}</h4>
-    {% endfor %}
-    <br/><br/><br/>
-
-    {% if user.is_authenticated%}
-    <a href="{% url 'modelformcreate'%}">django model form을 이용한 새 글 작성</a>
-    {%endif%}
-</body>
-</html>
+<!-- 그냥 중괄호 두개사이에 posts만 쓰면, QuerySet(데이터베이스에서 전달받은 객체의 목록)으로 표현됨 -->
+<!-- 따라서 반복문을 통해 표현 -->
+{% for post in posts %}
+    <a href="{% url 'detail' post.id %}" h3>제목 : {{post.title}}</h3></a>
+    <h5>작성날짜 : {{post.date}}</h5>
+    django가 만든, 블로그 객체 생성 순서에 해당하는 보이지 않는 primary key : {{ post.id }}<br/><br/>
+{% endfor %}
+<br/><br/><br/>
+<!--
+<a href="{% url 'new' %}">html을 이용한 새 글 작성</a><br/>
+<a href="{% url 'formcreat' %}">django form을 이용한 새 글 작성</a><br/>
+-->
+<a href="{% url 'modelformcreat' %}">django modelform을 이용한 새 글 작성</a><br/> 
