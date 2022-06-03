@@ -1,0 +1,29 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<h3 class="alert alert-primary">제목 : {{ post_detail.title }}</h3>
+<span class="badge rounded-pill bg-light">작성날짜 :{{ post_detail.date}}</span>
+<br/>
+<hr/>
+<p>
+    {{ post_detail.body }}
+</p>
+
+<!-- 댓글 목록 공간 -->
+<!-- 특정 개체(blog_detail)를 참고하고있는 어떤 모델(comment)의 집합을(set) 몽땅(all)-->
+{% for comment in post_detail.comment_set.all %} 
+    <p>{{ comment }}</p>
+    <span class="badge rounded-pill bg-light">{{ comment.date}}</span>    
+    <hr>
+{% endfor %}
+
+<!-- 댓글 입력 공간 -->
+<!-- 어떤 게시물에 대한 댓글인지에 대한 정보도 같이 넘겨줘야하기 때문에 post_detail.id도 적어줘야함 -->
+<form method="POST" action="{% url 'new_comment' post_detail.id %}">
+    {% csrf_token %}
+    <div class="form-group">
+        {{ comment_form }}
+    </div>
+    <input type="submit" class="btn btn-primary btn-icon-split btn-sm" value="댓글입력">
+</form>
+{% endblock %}

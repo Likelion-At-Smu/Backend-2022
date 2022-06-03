@@ -1,0 +1,14 @@
+<h1>검색기능구현</h1>
+
+{% for i in obj %}
+    {{ i.original_title }}<br/> 
+    <img src = https://image.tmdb.org/t/p/w200{{i.backdrop_path}}><br/>
+    <!-- obj의 id값(각각의 영화들에 대한 정보)도 같이 전달-->
+    <a href="{% url 'detail' i.id %}">영화 상세보기</a> 
+    {{ i.vote_average }}<br/>
+    {{ i.overview }}<br/>
+    {{ i.title }}<br/>
+    {{ i.id }}<br/>
+    <br/><br/><br/>
+
+{% endfor %}
