@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
+      <h1>한 눈에 알아보는 인기 영화</h1>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+          {% for o in obj %}
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="https://image.tmdb.org/t/p/w500/{{o.poster_path}}"class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>{{o.title}}</h4>
+                <p>{{o.release_date}}</p>
+                <div class="portfolio-links">
+                  <a href="{% url 'detail' o.id %}" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h3>검색하고 싶은 영화 제목을 입력</h3>
+            <form action="" method="post">
+            {% csrf_token %} 
+              {{ form }}
+              <input type="submit" value="search">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+{% endblock %}
+
+
+
+
+
+<!-- {% for o in obj %}
+
+<a href="{% url 'detail' o.id %}">{{ o.title }}</a><br/>
+<img src="https://image.tmdb.org/t/p/w500/{{ o.poster_path }}"><br/>
+<img src="https://image.tmdb.org/t/p/w500/{{o.backdrop_path}}"><br/>
+<br/><br/><br/>
+
+{% endfor %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="submit">
+</form> -->
