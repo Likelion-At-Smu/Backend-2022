@@ -1,0 +1,23 @@
+<h1>검색기능 구현</h1>
+
+<!-- obj 가 list의 형태이니까 template tag를 통해서 순회 할 수 있다 -->
+{% for o in obj %}
+
+<a href="{% url 'detail' o.id %}">영화상세보기</a> 
+<!-- 디테일에 정보를 보낼 때 o.id도 같이 넘어간다 -->
+<!-- id 값을 토대로 영화상세보기 링크가 만들어지고 -->
+
+{{o.original_title}}<br/>
+<img src="https://image.tmdb.org/t/p/w500/{{o.poster_path}}"<br/>
+<!-- 표지 사진 -->
+<br/>
+<img src="https://image.tmdb.org/t/p/w500/{{o.backdrop_path}}"<br/>
+<!-- 두번째 사진 -->
+{{o.vote_average}}<br/>
+{{o.overview}}<br/>
+{{o.title}}<br/>
+{{o.id}}<br/>
+<br/><br/><br/>
+
+
+{% endfor %}
