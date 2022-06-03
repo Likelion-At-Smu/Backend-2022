@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form action="" method="POST" enctype="multipart/form-data"><!--포스트 요청 날리는 곳-->
+    {% csrf_token %}<!--장고에서는 보안을 위해 CSRF 사용-->
+    <table>
+        {{form.as_p}}<!--폼을 p에 감싸진 형태로 보여주고 싶음.-->
+    </table>
+    <br/>
+    <input type="submit" class="btn btn-success btn-icon-split btn-sm" value="create">
+</form>
+{% endblock %}
