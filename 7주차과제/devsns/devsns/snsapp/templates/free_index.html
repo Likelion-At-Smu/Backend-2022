@@ -1,0 +1,46 @@
+<!-- 'base.html' 상속 -->
+{% extends 'base.html' %} 
+{% block content %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">자유게시판</h1>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th width="65%">글 제목</th>
+                            <th>작성날짜</th>
+                            <th>작성자</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for post in freeposts %}
+                        <tr>
+                            <td><a href="{% url 'freedetail' post.id %}">{{ post.title }}</a></td>
+                            <td>{{ post.date }}</td>
+                            <!-- post.author만 하면 post.author안에 User를 참조하고 있는 것이 아니므로 유저이름이 아니라 유저 객체가 나옴-->
+                            <td>{{ post.author.username }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>    
+                </table>
+            </div>
+        </div>
+    </div>
+    <a href="{% url 'freepostcreate' %}" class="btn btn-primary btn-icon-split">
+        <span class="icon text-white-50">
+            <i class="fas fa-flag"></i>
+        </span>
+        <span class="text">글쓰기</span>
+    </a>
+</div>
+
+
+
+{% endblock %}

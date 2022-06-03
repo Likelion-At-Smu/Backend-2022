@@ -1,0 +1,62 @@
+<!-- 'base.html' 상속 -->
+{% extends 'base.html' %} 
+{% block content %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">익명게시판</h1>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th width="65%">글 제목</th>
+                            <th>작성날짜</th>
+                            <th>작성자</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <!-- 하나하나 내용을 뽑아내기 위해 for문 이용-->
+                    {% for post in posts %}
+                    <tr>
+                        <!-- .id는 숨겨진 PK값 -->
+                        <th><a href="{% url 'detail' post.id %}">{{ post.title }}</a></th>
+                        <th>{{ post.date }}</th>
+                        <th>익명</th>  
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <a href="{% url 'postcreat' %}" class="btn btn-primary btn-icon-split">
+        <span class="icon text-white-50">
+            <i class="fas fa-flag"></i>
+        </span>
+        <span class="text">글쓰기</span>
+    </a>
+</div>
+
+<!-- Pagination -->
+{% if posts.has_previous %}
+<a href="?page=1">첫 페이지</a>
+<a href="?page={{ post.previous_page_number }}">이전 페이지</a>
+{% endif %}
+
+<!-- 현재 페이지 / 전체 페이지 -->
+<span>{{ posts.number }}</span>
+<span> / </span>
+<span>{{ posts.paginator.num_pages }} </span>
+
+{% if posts.has_next %}
+<a href="?page={{posts.next_page_number}}">다음 페이지</a>
+<a href="?page={{posts.paginator.num_pages}}">마지막 페이지</a>
+{% endif %}
+
+
+{% endblock %}
