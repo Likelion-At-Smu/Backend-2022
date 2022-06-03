@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>새 글 작성</h1>
+
+<!-- 첨부파일도 구현할것이기에enctype 사용 -->
+<form action="" method="POST" enctype="multipart/form-data"> 
+    {% csrf_token %}
+<!-- form을 이용해서 POST를 쓸 때는 보안을 위해서 위와 같은 코드를 써준다 -->
+    <table>
+        {{ form.as_table }}
+    </table>    
+    <input type="submit" value="새 글"> 
+    <!-- 제출 버튼 만들기 위의 코드의 경우 -->
+</form>
+
+{% endblock %}

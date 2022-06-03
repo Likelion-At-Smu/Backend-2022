@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Page Heading -->
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-success">익명게시판</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th width='70%'>글 제목</th>
+                        <th>작성 날짜</th>
+                        <th>작성자</th>
+                    </tr>
+                </thead>
+                <tbody>
+            <!-- 그냥 {{post}}를 사용하면 post 내용이 아니라 query set 자체가 나온다 -->
+                    {% for post in posts %} 
+                    <!-- post 하나하나를 순회하면서 담아준다 -->
+                    <!-- template에서 for문을  이용해서 반복문을 사용한다면
+                    꼭 endfor을 이용해서 닫아주어야한다 -->
+                    <tr>
+                        <td><a href="{% url 'detail' post.id %}">{{ post.title }}</a></td>
+                        <!-- .id는 primary key에 해당 -->
+                        <td>{{ post.title }}</td>
+                        <td>{{ post.date }}</td>
+
+                        <td>익명</td>
+                    </tr>
+                    {% endfor %}
+                    <!-- 이렇게 endfor을 이용해서 닫는다 -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% if user.is_authenticated %}
+<!-- url을 postcreate라는 곳으로 이동 -->
+<a href="{% url 'postcreate' %}" class="btn btn-success btn-icon-split">
+    <span class="icon text-white-50">
+        <i class="fas fa-flag"></i>
+    </span>
+    <span class="text">글쓰기</span>
+</a>
+{% endif %}
+
+<!-- 페이지네이션 -->
+{% if posts.has_previous %}
+<a href="?page=1">첫 페이지</a>
+<a href="?page={{posts.previous_page_number}}">이전 페이지</a>
+<!-- posts 객체가 가지고 있는 이전 페이지 숫자가 위의 { }안에 반영될것이고  -->
+{% endif %}
+
+<span> {{post.number}} </span>
+<span> / </span>
+<span> {{post.paginator.num_pages}} </span>
+<!-- posts가 가지고있는 짤린 number의 총 페이지의 number -->
+
+{% if posts.has_next %}
+<a href="?page={{posts.next_page_number}}">다음 페이지</a>
+<a href="?page={{post.paginator.num_pages}}">마지막 페이지</a>
+{% endif %}
+{% endblock %}
