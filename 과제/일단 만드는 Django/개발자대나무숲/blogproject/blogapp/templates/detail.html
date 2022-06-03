@@ -1,0 +1,32 @@
+<h1>제목</h1>
+{{ blog_detail.title }}
+
+<h2>날짜</h2>
+{{ blog_detail.date }}
+
+<h3>본문</h3>
+{{ blog_detail.body }}
+
+<h3>사진</h3>
+{% if blog_detail.photo %}
+    <!--사진 찍어주기-->
+    {{ blog_detail.photo.url }}
+    <img src="{{ blog_detail.photo.url }}" alt="" height="100">
+{% endif %}
+
+<hr>
+<h3>댓글</h3>
+
+<form method="POST" action="{% url 'create_comment' blog_detail.id %}">
+    <!--form을 이용해 POST 요청을 보내려면 토큰이 필요함-->
+    {% csrf_token %}
+    {{ comment_form }}
+    <input type="submit">
+</form>
+<hr>
+<!--댓글 목록-->
+<!--blog_detail의 comment 객체 집합 전부를 가져옴-->
+{% for comment in blog_detail.comment_set.all %}
+<p>{{ comment }}</p>
+<hr>
+{% endfor %}

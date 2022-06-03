@@ -1,0 +1,14 @@
+<!--제출 버튼을 눌렀을 때, create 함수 실행, POST 요청을 보냄-->
+<form action="{% url 'create' %}" method="POST">
+    <!--보안 문제로 토큰 명시해줌-->
+    {% csrf_token %}
+    <div>
+        <label for="title">제목</label><br/>
+        <input type="text" name="title" id="title">
+    </div>
+    <div>
+        <label for="body">본문</label><br/>
+        <textarea name="body" id="body" cols="30" rows="10"></textarea>
+    </div>
+    <input type="submit" value="글 생성하기">
+</form>

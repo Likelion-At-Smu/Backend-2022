@@ -1,0 +1,32 @@
+from django.contrib import admin
+from django.urls import path
+from blogapp import views
+from django.conf import settings
+from django.conf.urls.static import static
+from accounts import views as accounts_view
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', views.home, name='home'),
+
+    # html form을 이용해 블로그 객체 만들기
+    path('new/', views.new, name='new'),
+    path('create/', views.create, name='create'),
+
+    # django form을 이용해 블로그 객체 만들기
+    path('formcreate/', views.formcreate, name='formcreate'),
+
+    # django modelform을 이용해 블로그 객체 만들기
+    path('modelformcreate/', views.modelformcreate, name='modelformcreate'),
+
+    path('detail/<int:blog_id>', views.detail, name='detail'),
+
+    # 댓글을 저장하는 역할
+    path('create_comment/<int:blog_id>', views.create_comment, name='create_comment'),
+
+    path('login/', accounts_view.login, name="login"),
+    path('logout/', accounts_view.logout, name="logout"),
+]
+
+# media 파일에 접근할 수 있는 url을 추가해줘야 함
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
