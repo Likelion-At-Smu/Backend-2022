@@ -1,6 +1,4 @@
-#!/bin/sh
-'''exec' "/mnt/c/Users/202010869/Desktop/BEENI/멋사 10기/Backend-2022/과제/일단 만드는 Django/개발자대나무숲/myvenv/bin/python" "$0" "$@"
-' '''
+#!/Users/onieyh/Desktop/Backend-2022/7주차과제/myvenv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
