@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- 제출 버튼을 누르면 post요청을 보낸다. -->
+<form action="" method="POST" enctype="multipart/form-data">
+    <!-- 보안을 위해서 post값을 숨긴다. -->
+    {% csrf_token %}
+    <!-- table로 감싸진 상태로 form을 보여준다 -->
+    <table>
+        <!-- get요청을 통해 수신한 form -->
+        {{form.as_p}}
+    </table>
+    <br/>
+    <!-- 제출 버튼 -->
+    <input type="submit" class="btn btn-success btn-icon-split btn-sm" value="create">
+</form>
+{% endblock %}
