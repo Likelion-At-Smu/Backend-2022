@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container-fluid">
+    <h1>제목 : {{post_detail.title}}</h1>
+
+    <h2>본문 : {{post_detail.body}}</h2>
+
+    <form action="{% url 'commentcreate' post_detail.id %}" method="POST">
+        {% csrf_token %}
+        <!--form.as_ 를 이용하여 form을 어떤 형태로 보여줄 것인지 선택할 수 있음-->
+        <table>
+            {{comment_form.as_table}}
+        </table>
+        <input type="submit" value="댓글 작성">
+    </form>
+
+    {% for comment in post_detail.comment_set.all %}
+        <p>{{comment.comment}}</p>
+        <hr>
+    {% endfor %}
+    </div>
+{% endblock %}
