@@ -10,7 +10,7 @@ class Blog(models.Model):
     #pip로 pillow를 설치해줘야했음
     photo = models.ImageField(blank=True, null=True, upload_to = 'blog_photo')
     date = models.DateTimeField(auto_now_add=True)
-    
+
     def __str__(self):
         return self.title
 
